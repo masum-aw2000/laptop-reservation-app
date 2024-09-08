@@ -1,0 +1,20 @@
+[
+  {
+    "laptop": "Dell XPS 13",
+    "user": "John Doe",
+    "checkoutDate": "2024-09-08",
+    "checkoutTime": "14:00",
+    "returnDate": "2024-09-15",
+    "returnTime": "10:00",
+    "id": 1
+  },
+  {
+    "laptop": "Macbook Air",
+    "user": "John Doe",
+    "checkoutDate": "2024-09-09",
+    "checkoutTime": "14:00",
+    "returnDate": "2024-09-16",
+    "returnTime": "14:00",
+    "id": 2
+  }
+]
