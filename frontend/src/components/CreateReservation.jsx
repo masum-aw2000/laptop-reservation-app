@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
 
 const CreateReservation = () => {
+    const navigate = useNavigate();
     const [reservation, setReservation] = useState({
         laptop: '',
         user: 'John Doe',
@@ -28,6 +30,7 @@ const CreateReservation = () => {
 
             const data = await response.json();
             console.log('Reservation created:', data);
+            navigate('/');
         } catch (error) {
             console.error('Error creating reservation:', error);
         }
