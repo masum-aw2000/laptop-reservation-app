@@ -13,7 +13,7 @@ const CreateReservation = () => {
         returnTime: ''
     });
 
-    cosnt [availableLaptops, setAvailablelLaptops] = useState([]);
+    // const[availableLaptops, setAvailablelLaptops] = useState([]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
