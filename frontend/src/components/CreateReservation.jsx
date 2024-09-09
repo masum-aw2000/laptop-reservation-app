@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {useNavigate} from 'react-router-dom';
+import LaptopCard from './card/LaptopCard';
 
 const CreateReservation = () => {
     const navigate = useNavigate();
@@ -11,6 +12,8 @@ const CreateReservation = () => {
         returnDate: '',
         returnTime: ''
     });
+
+    cosnt [availableLaptops, setAvailablelLaptops] = useState([]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;

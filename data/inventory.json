@@ -1,0 +1,69 @@
+[
+    {
+      "id": 1,
+      "name": "Dell XPS 13",
+      "brand": "Dell",
+      "processor": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "gpu": "Intel Iris Xe",
+      "screenSize": "13.4 inch",
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "MacBook Pro 16",
+      "brand": "Apple",
+      "processor": "Apple M1 Pro",
+      "ram": "32GB",
+      "storage": "1TB SSD",
+      "gpu": "M1 Pro 16-core",
+      "screenSize": "16 inch",
+      "available": true
+    },
+    {
+      "id": 3,
+      "name": "HP Spectre x360",
+      "brand": "HP",
+      "processor": "Intel Core i5",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "gpu": "Intel UHD",
+      "screenSize": "13.3 inch",
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "Lenovo ThinkPad X1 Carbon",
+      "brand": "Lenovo",
+      "processor": "Intel Core i7",
+      "ram": "16GB",
+      "storage": "1TB SSD",
+      "gpu": "Intel UHD",
+      "screenSize": "14 inch",
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "Asus ZenBook 14",
+      "brand": "Asus",
+      "processor": "AMD Ryzen 7",
+      "ram": "16GB",
+      "storage": "512GB SSD",
+      "gpu": "NVIDIA GeForce MX450",
+      "screenSize": "14 inch",
+      "available": true
+    },
+    {
+      "id": 6,
+      "name": "Microsoft Surface Laptop 4",
+      "brand": "Microsoft",
+      "processor": "Intel Core i5",
+      "ram": "8GB",
+      "storage": "256GB SSD",
+      "gpu": "Intel Iris Xe",
+      "screenSize": "13.5 inch",
+      "available": true
+    }
+  ]
+  
