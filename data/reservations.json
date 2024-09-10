@@ -7,5 +7,23 @@
     "returnDate": "2024-09-23",
     "returnTime": "22:20",
     "id": "f77ba3c6-847d-49dc-b859-6d8fc707a774"
+  },
+  {
+    "laptop": "MacBook Pro",
+    "user": "John Doe",
+    "checkoutDate": "",
+    "checkoutTime": "",
+    "returnDate": "",
+    "returnTime": "",
+    "id": "7ca52f1a-d66c-4387-aa06-c185e7c21324"
+  },
+  {
+    "laptop": "Dell XPS 13",
+    "user": "John Doe",
+    "checkoutDate": "2024-09-17",
+    "checkoutTime": "14:19",
+    "returnDate": "2024-09-16",
+    "returnTime": "15:19",
+    "id": "2a5d8926-e161-4b44-ad15-b94f9834c393"
   }
 ]
