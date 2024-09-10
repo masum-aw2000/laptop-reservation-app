@@ -34,7 +34,7 @@ const ReservationsList = () => {
 
   
   return (
-    <div>
+    <div className='.reservations'>
       <h1>Reservations</h1>
       {error && <p>Error: {error}</p>} {/* Display error if any */}
 

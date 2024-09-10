@@ -49,6 +49,11 @@ const readInventoryFile = async () => {
 };
 
 
+// ---------- SET HOME ROTE ----------
+app.get('/', async (req, res) => {
+  res.redirect('/home');
+})
+
 // ---------- CRUD OPERATIONS BELOW ----------
 
 // 1. Read (GET): Fetch all reservations

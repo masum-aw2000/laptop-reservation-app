@@ -1,0 +1,37 @@
+ :root {
+     /* color styles */
+     --sidebar-bg-color: #ffffff;
+     --content-bg-color: #ececec;
+     --container-bg-color: #db4f4f;
+ }
+
+ .dashboard {
+     display: grid;
+     /* background-color: var(--sidebar-bg-color); */
+     grid-template-columns: 350px 1fr;  /* Sidebar takes 350px, content takes up the rest */
+
+     height: 100vh;
+ }
+
+ .sidebar {
+     background-color: var(--sidebar-bg-color);
+     padding: 20px;
+     border: .1px solid #d1d1d1;
+ }
+
+ .content {
+     background-color: var(--content-bg-color);
+     padding: 20px;
+     overflow-y: auto;
+ }
+
+  /* Container class for shared layout structure */
+.container {
+    display: flex;
+    max-width: 1200px;
+    padding: 4% 2%;
+  }
+
+  .reservations{
+    background-color: #db4f4f;
+  }
