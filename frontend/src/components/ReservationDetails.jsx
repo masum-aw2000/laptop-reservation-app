@@ -6,6 +6,7 @@
 
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import Back from './buttons/Back';
 
 const ReservationDetails = () => {
     const { id } = useParams();
@@ -51,6 +52,11 @@ const ReservationDetails = () => {
             ) : (
                 <p>Loading...</p>
             )}
+
+            <Back
+                destination='/'
+                text='Go to Dashboard'
+            />
         </div>
     );
 };

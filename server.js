@@ -3,6 +3,7 @@ import express from 'express'; // express framework for creating the server
 import { readFile, writeFile } from 'fs/promises'; // file system methods with promises support
 import path from 'path'; // utility to handle and transform file paths
 import { fileURLToPath } from 'url'; // converts module URLs to file paths
+import { v4 as uuidv4} from 'uuid';
 import cors from 'cors';
 
 
@@ -48,10 +49,10 @@ app.get('/reservations', async (req, res) => {
 
 // 1.1 Read (GET): Fetch a reservation by ID
 app.get('/reservations/:id', async (req,res) => {
+    const {id} = req.params;
     try {
         const reservations = await readReservationsFile(); // get all reservations
-        const reservationId = parseInt(req.params.id);
-        const reservation = reservations.find(r => r.id === reservationId);
+        const reservation = reservations.find(r => r.id === id);
 
         if(reservation){
             res.json(reservation); // send single reservation as JSON response
@@ -70,7 +71,7 @@ app.post('/reservations', async (req, res) => {
         const reservations = await readReservationsFile(); // Read current reservations from file
 
         // Create a new reservation from the request body and assign a new id
-        const newReservation = { ...req.body, id: reservations.length + 1 };
+        const newReservation = { ...req.body, id: uuidv4() };
 
         reservations.push(newReservation); // Add new reservation to the list
 
@@ -87,11 +88,10 @@ app.post('/reservations', async (req, res) => {
 
 // 3. Update (PUT): Update an existing reservation by id
 app.put('/reservations/:id', async (req, res) => {
+  const {id} = req.params;
     try {
       const reservations = await readReservationsFile(); // Read current reservations from file
-  
-      const reservationId = parseInt(req.params.id); // Get the reservation id from the request params
-      const reservationIndex = reservations.findIndex(r => r.id === reservationId); // Find the reservation index by id
+      const reservationIndex = reservations.findIndex(r => r.id === id); // Find the reservation index by id
   
       if (reservationIndex === -1) {
         return res.status(404).json({ message: 'Reservation not found' }); // If reservation doesn't exist, send 404
@@ -110,11 +110,10 @@ app.put('/reservations/:id', async (req, res) => {
 
   // 4. Delete (DELETE): Remove a reservation by id
 app.delete('/reservations/:id', async (req, res) => {
+    const {id} = req.params;
     try {
       const reservations = await readReservationsFile(); // Read current reservations from file
-  
-      const reservationId = parseInt(req.params.id); // Get the reservation id from the request params
-      const updatedReservations = reservations.filter(r => r.id !== reservationId); // Filter out the reservation with the matching id
+      const updatedReservations = reservations.filter(r => r.id !== id); // Filter out the reservation with the matching id
   
       if (reservations.length === updatedReservations.length) {
         return res.status(404).json({ message: 'Reservation not found' }); // If no reservation was removed, send 404

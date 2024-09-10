@@ -1,89 +1,102 @@
-import { useState, useEffect } from 'react';
-import {useNavigate} from 'react-router-dom';
-import LaptopCard from './card/LaptopCard';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import LaptopCard from "./card/LaptopCard";
+import Back from "./buttons/Back";
 
 const CreateReservation = () => {
-    const navigate = useNavigate();
-    const [reservation, setReservation] = useState({
-        laptop: '',
-        user: 'John Doe',
-        checkoutDate: '',
-        checkoutTime: '',
-        returnDate: '',
-        returnTime: ''
-    });
+  const navigate = useNavigate();
+  const [reservation, setReservation] = useState({
+    laptop: "",
+    user: "John Doe",
+    checkoutDate: "",
+    checkoutTime: "",
+    returnDate: "",
+    returnTime: "",
+  });
 
-    // const[availableLaptops, setAvailablelLaptops] = useState([]);
+  // const[availableLaptops, setAvailablelLaptops] = useState([]);
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setReservation(prev => ({ ...prev, [name]: value }));
-    };
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setReservation((prev) => ({ ...prev, [name]: value }));
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch('http://localhost:3000/reservations', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(reservation),
-            });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:3000/reservations", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(reservation),
+      });
 
-            const data = await response.json();
-            console.log('Reservation created:', data);
-            navigate('/');
-        } catch (error) {
-            console.error('Error creating reservation:', error);
-        }
-    };
+      const data = await response.json();
 
-    return (
-        <form onSubmit={handleSubmit}>
-            {/* Laptop info */}
-            <label>Laptop:</label>
-            <input
-                type='text'
-                name='laptop'
-                value={reservation.laptop}
-                onChange={handleChange}
-            />
-            {/* Checkout date info */}
-            <label>Checkout Date:</label>
-            <input
-                type='date'
-                name='checkoutDate'
-                value={reservation.checkoutDate}
-                onChange={handleChange}
-            />
-            {/* Checkout time info */}
-            <label>Checkout Time:</label>
-            <input
-                type='time'
-                name='checkoutTime'
-                value={reservation.checkoutTime}
-                onChange={handleChange}
-            />
-            {/* Return date info */}
-            <label>Return Date:</label>
-            <input 
-                type='date'
-                name='returnDate'
-                value={reservation.returnDate}
-                onChange={handleChange}
-            />
-            {/* Return time info */}
-            <label>Return Time:</label>
-            <input 
-                type='time'
-                name='returnTime'
-                value={reservation.returnTime}
-                onChange={handleChange}
-            />
-            <button type='submit'>Create Reservation</button>
-        </form>
-    );
+      if (response.ok) {
+        alert("Reservation created.");
+      } else {
+        alert("Error creating reservation.");
+      }
+      console.log("Reservation created:", data);
+      navigate("/");
+    } catch (error) {
+      console.error("Error creating reservation:", error);
+    }
+  };
+
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        {/* Laptop info */}
+        <label>Laptop:</label>
+        <input
+          type="text"
+          name="laptop"
+          value={reservation.laptop}
+          onChange={handleChange}
+        />
+        {/* Checkout date info */}
+        <label>Checkout Date:</label>
+        <input
+          type="date"
+          name="checkoutDate"
+          value={reservation.checkoutDate}
+          onChange={handleChange}
+        />
+        {/* Checkout time info */}
+        <label>Checkout Time:</label>
+        <input
+          type="time"
+          name="checkoutTime"
+          value={reservation.checkoutTime}
+          onChange={handleChange}
+        />
+        {/* Return date info */}
+        <label>Return Date:</label>
+        <input
+          type="date"
+          name="returnDate"
+          value={reservation.returnDate}
+          onChange={handleChange}
+        />
+        {/* Return time info */}
+        <label>Return Time:</label>
+        <input
+          type="time"
+          name="returnTime"
+          value={reservation.returnTime}
+          onChange={handleChange}
+        />
+        <button type="submit">Create Reservation</button>
+      </form>
+      <Back 
+        destination='/'
+        page='Dashboard'
+      />
+    </div>
+  );
 };
 
 export default CreateReservation;

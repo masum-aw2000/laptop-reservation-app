@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Back from './buttons/Back';
 
 const EditReservation = () => {
     const { id } = useParams(); // get the reservation ID from the url
@@ -101,6 +102,11 @@ const EditReservation = () => {
             ) : (
                 <p>Loading...</p>
             )}
+            <Back 
+                destination='/'
+                text='Cancel'
+            />
+
         </div>
     );
 };

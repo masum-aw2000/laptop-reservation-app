@@ -1,11 +1,11 @@
 [
   {
-    "laptop": "Macbook Air 13",
+    "laptop": "Macbook Air 14",
     "user": "John Doe",
     "checkoutDate": "2024-09-23",
-    "checkoutTime": "19:32",
-    "returnDate": "2024-10-01",
-    "returnTime": "19:34",
-    "id": 2
+    "checkoutTime": "20:24",
+    "returnDate": "2024-09-23",
+    "returnTime": "22:20",
+    "id": "f77ba3c6-847d-49dc-b859-6d8fc707a774"
   }
 ]
