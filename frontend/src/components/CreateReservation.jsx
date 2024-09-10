@@ -5,6 +5,8 @@ import Back from "./buttons/Back";
 
 const CreateReservation = () => {
   const navigate = useNavigate();
+  const [laptops, setLaptops] = useState([]);
+  const [selectedLaptop, setSelectedLaptop] = useState(null);
   const [reservation, setReservation] = useState({
     laptop: "",
     user: "John Doe",
@@ -15,6 +17,24 @@ const CreateReservation = () => {
   });
 
   // const[availableLaptops, setAvailablelLaptops] = useState([]);
+  useEffect(() => {
+    const fetchLaptops = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/inventory");
+        const data = await response.json();
+        setLaptops(data);
+      } catch (error) {
+        console.error("Error fetching laptops:", error);
+      }
+    };
+
+    fetchLaptops();
+  }, []);
+
+  const handleSelect = (laptop) => {
+    setSelectedLaptop(laptop);
+    setReservation((prev) => ({ ...prev, laptop: laptop.name })); // set the laptop field in reservation
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,7 +49,10 @@ const CreateReservation = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(reservation),
+        body: JSON.stringify({
+          ...reservation,
+          laptop: selectedLaptop.name,
+        }),
       });
 
       const data = await response.json();
@@ -48,15 +71,23 @@ const CreateReservation = () => {
 
   return (
     <div>
+      <h1>New Reservation</h1>
       <form onSubmit={handleSubmit}>
         {/* Laptop info */}
         <label>Laptop:</label>
-        <input
-          type="text"
-          name="laptop"
-          value={reservation.laptop}
-          onChange={handleChange}
-        />
+        <div>
+        {Array.isArray(laptops) && laptops.map((laptop) => (
+          <LaptopCard
+            key={laptop.id}
+            laptop={laptop}
+            onSelect={() => handleSelect(laptop)}
+            isSelected={selectedLaptop?.id === laptop.id}
+          />
+        ))}
+      </div>
+       
+        
+
         {/* Checkout date info */}
         <label>Checkout Date:</label>
         <input
@@ -91,10 +122,7 @@ const CreateReservation = () => {
         />
         <button type="submit">Create Reservation</button>
       </form>
-      <Back 
-        destination='/'
-        page='Dashboard'
-      />
+      <Back destination="/" text="Dashboard" />
     </div>
   );
 };
