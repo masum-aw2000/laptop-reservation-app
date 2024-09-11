@@ -1,0 +1,20 @@
+/* styles for sidebar */
+
+/* root styles */
+
+:root{
+    /* color variables */
+    --tab-bg: #21333E;
+    --tab-text: #F0F0F0;
+}
+
+.sidebarContent{
+    padding: 2.4rem;
+}
+.tab {
+    padding: .7rem 1.2rem;
+    margin-bottom: 1.2rem;
+    border-radius: 10px;
+    background-color: var(--tab-bg);
+    color: var(--tab-text);
+}
