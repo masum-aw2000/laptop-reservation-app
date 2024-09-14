@@ -29,7 +29,7 @@ const DeleteButton = ({ reservationId }) => {
 
     };
 
-    return (<button onClick={handleDelete}>Cancel</button>);
+    return (<button className='warning 'onClick={handleDelete}>Cancel</button>);
 };
 
 export default DeleteButton;

@@ -70,7 +70,7 @@ const CreateReservation = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>New Reservation</h1>
       <form onSubmit={handleSubmit}>
         {/* Laptop info */}
@@ -85,9 +85,7 @@ const CreateReservation = () => {
           />
         ))}
       </div>
-       
-        
-
+    
         {/* Checkout date info */}
         <label>Checkout Date:</label>
         <input

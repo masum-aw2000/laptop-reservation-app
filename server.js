@@ -49,6 +49,9 @@ const readInventoryFile = async () => {
 };
 
 
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
+
 // ---------- SET HOME ROTE ----------
 app.get('/', async (req, res) => {
   res.redirect('/home');

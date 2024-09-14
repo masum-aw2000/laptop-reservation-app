@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "Dell XPS 13",
+    "thumbnail": "/img/laptop.jpg",
     "specs": {
       "processor": "Intel i7",
       "ram": "16GB",
@@ -13,6 +14,7 @@
   {
     "id": 2,
     "name": "MacBook Pro",
+    "thumbnail": "/img/laptop.jpg",
     "specs": {
       "processor": "M1 Chip",
       "ram": "16GB",

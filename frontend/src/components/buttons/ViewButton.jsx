@@ -1,16 +1,8 @@
 // ViewButton.jsx
 
-import {useNavigate} from 'react-router-dom';
-
-const ViewButton = ({reservationId}) =>{
-    const navigate = useNavigate();
-
-    const handleView = () => {
-        navigate(`reservations/view/${reservationId}`);
-    };
-
+const ViewButton = ({reservationId, onClick}) =>{
     return (
-        <button onClick={handleView}>View</button>
+        <button className='primary' onClick={() => onClick(reservationId)}>View</button>
     )
 };
 

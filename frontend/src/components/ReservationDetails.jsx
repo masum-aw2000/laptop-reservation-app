@@ -37,7 +37,7 @@ const ReservationDetails = () => {
     }, [id]);
 
     return (
-        <div>
+        <div className='container'>
             <h1>Reservation Details</h1>
             {error && <p>Error: {error}</p>}
             {reservation ? (

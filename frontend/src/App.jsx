@@ -5,13 +5,12 @@ import Dashboard from './components/dashboard/Dashboard.jsx';
 import Sidebar from './components/sidebar/Sidebar.jsx';
 import ReservationDetails from './components/ReservationDetails.jsx';
 import EditReservation from './components/EditReservation.jsx';
-import './components/styles/globals.css';
+import './components/styles/globals.scss';
 
 function App() {
 
   return (
     <div className='dashboard'>
-
       <Router>
         <div className='sidebarContainer'>
           <Sidebar />

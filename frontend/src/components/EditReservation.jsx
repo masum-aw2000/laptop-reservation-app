@@ -1,114 +1,90 @@
-import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import Back from './buttons/Back';
+import ReactModal from 'react-modal';
 
-const EditReservation = () => {
-    const { id } = useParams(); // get the reservation ID from the url
-    const [reservation, setReservation] = useState(null);
+const EditReservationModal = ({ isOpen, onRequestClose, reservation }) => {
+    const [editReservation, setEditReservation] = useState(reservation);
     const [error, setError] = useState(null);
-    const navigate = useNavigate(); // navigate programatically
 
     useEffect(() => {
-        const fetchReservation = async () => {
-            try {
-                const response = await fetch(`http://localhost:3000/reservations/${id}`); // fetch data from server endpoint
-                const data = await response.json(); // retrun as a JSON object
-
-                if (data) {
-                    setReservation(data);
-                } else {
-                    setError('Reservation not found');
-                }
-            } catch (error) {
-                setError('Failed to fetch reservation');
-            }
-        };
-
-        fetchReservation();
-    }, [id]);
+        setEditReservation(reservation);
+    }, [reservation]);
 
     const handleChange = (e) => {
-        setReservation({ ...reservation, [e.target.name]: e.target.value });
+        setEditReservation({ ...editReservation, [e.target.name]: e.target.value });
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://localhost:3000/reservations/${id}`, {
+            const response = await fetch(`http://localhost:3000/reservations/${editReservation.id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(reservation),
-
+                body: JSON.stringify(editReservation),
             });
 
-            const data = await response.json();
             if (response.ok) {
-                console.log('Reservation updated:', data);
-                navigate(`/reservations/view/${id}`); // redirect to the reservation details page
+                onRequestClose(); // Close the modal after successful update
+                alert('Reservation updated.');
             } else {
                 setError('Error updating reservation.');
             }
         } catch (error) {
-            setError('Failed to update resrvation.')
+            setError('Failed to update reservation.');
         }
     };
 
     if (error) return <p>{error}</p>;
 
     return (
-        <div>
-            <h1>Edit Reservation</h1>
-            {reservation ? (
+        <ReactModal isOpen={isOpen} onRequestClose={onRequestClose} contentLabel="Edit Reservation">
+            <h2>Edit Reservation</h2>
+            {editReservation ? (
                 <form onSubmit={handleSubmit}>
                     <label>Laptop:</label>
                     <input
                         type='text'
                         name='laptop'
-                        value={reservation.laptop}
+                        value={editReservation.laptop}
                         onChange={handleChange}
                     />
                     <label>Checkout Date:</label>
                     <input
                         type='date'
                         name='checkoutDate'
-                        value={reservation.checkoutDate}
+                        value={editReservation.checkoutDate}
                         onChange={handleChange}
                     />
                     <label>Checkout Time:</label>
                     <input
                         type='time'
                         name='checkoutTime'
-                        value={reservation.checkoutTime}
+                        value={editReservation.checkoutTime}
                         onChange={handleChange}
                     />
                     <label>Return Date:</label>
                     <input
                         type='date'
                         name='returnDate'
-                        value={reservation.returnDate}
+                        value={editReservation.returnDate}
                         onChange={handleChange}
                     />
                     <label>Return Time:</label>
                     <input
                         type='time'
                         name='returnTime'
-                        value={reservation.returnTime}
+                        value={editReservation.returnTime}
                         onChange={handleChange}
                     />
                     <button type='submit'>Update Reservation</button>
+                    <button type='button' onClick={onRequestClose}>Cancel</button>
                 </form>
             ) : (
                 <p>Loading...</p>
             )}
-            <Back 
-                destination='/'
-                text='Cancel'
-            />
-
-        </div>
+        </ReactModal>
     );
 };
 
-export default EditReservation;
+export default EditReservationModal;

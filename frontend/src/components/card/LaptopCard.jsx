@@ -18,7 +18,9 @@ const LaptopCard = ({ laptop, onSelect, isSelected }) => {
       <div className="card-hearder">
         <h3>{laptop.name}</h3>
       </div>
-      <div className="card-img"></div>
+      <div className="card-img">
+        <img src={`http://localhost:3000${laptop.thumbnail}`}></img>
+      </div>
       <div className="card-body">
         <p>Operating System: {laptop.specs.operatingSystem}</p>
         <p>Processor: {laptop.specs.processor}</p>
@@ -27,7 +29,7 @@ const LaptopCard = ({ laptop, onSelect, isSelected }) => {
       </div>
       <div className="card-footer">
         <button onClick={handleSelect} type="button">
-            {selected ? 'Deselect' : 'Select'}
+          {selected ? 'Deselect' : 'Select'}
         </button>
       </div>
     </div>

@@ -5,16 +5,16 @@ import styles from './SidebarStyles.module.css';
 const Sidebar = () => {
     return (
         <div className={`${styles.sidebarContent}`}>
+        <div className='logo'>ResrvIt</div>
+        <div>
             {/* content goes here */}
-            <div>
-                <Tab
-                    tabName='Dashboard'
-                    tabLink='/'
-                />
-
                 <Tab
                     tabName='My Reservations'
                     tabLink='/'
+                />
+                <Tab
+                    tabName='New Reservation'
+                    tabLink='/reservations/create'
                 />
             </div>
         </div>
