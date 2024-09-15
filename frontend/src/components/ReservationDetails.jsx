@@ -42,7 +42,7 @@ const ReservationDetails = () => {
             {error && <p>Error: {error}</p>}
             {reservation ? (
                 <div>
-                    <p><strong>Laptop:</strong> {reservation.laptop}</p>
+                    <p><strong>Item:</strong> {reservation.itemType}</p>
                     <p><strong>User:</strong> {reservation.user}</p>
                     <p><strong>Checkout Date:</strong> {reservation.checkoutDate}</p>
                     <p><strong>Checkout Time:</strong> {reservation.checkoutTime}</p>

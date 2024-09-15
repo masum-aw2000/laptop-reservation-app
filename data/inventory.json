@@ -1,8 +1,9 @@
 [
   {
     "id": 1,
+    "itemType": "Laptop",
     "name": "Dell XPS 13",
-    "thumbnail": "/img/laptop.jpg",
+    "thumbnail": "/img/laptop.svg",
     "specs": {
       "processor": "Intel i7",
       "ram": "16GB",
@@ -13,13 +14,118 @@
   },
   {
     "id": 2,
+    "itemType": "Laptop",
     "name": "MacBook Pro",
-    "thumbnail": "/img/laptop.jpg",
+    "thumbnail": "/img/laptop.svg",
     "specs": {
       "processor": "M1 Chip",
       "ram": "16GB",
       "storage": "1TB SSD",
       "operatingSystem": "macOS Ventura"
+    },
+    "available": true
+  },
+  {
+    "id": 3,
+    "itemType": "DSLR",
+    "name": "Canon EOS 5D Mark IV",
+    "thumbnail": "/img/dslr.svg",
+    "specs": {
+      "sensor": "Full-frame",
+      "megapixels": "30.4MP",
+      "video": "4K",
+      "lensMount": "Canon EF"
+    },
+    "available": true
+  },
+  {
+    "id": 4,
+    "itemType": "DSLR",
+    "name": "Nikon D850",
+    "thumbnail": "/img/dslr.svg",
+    "specs": {
+      "sensor": "Full-frame",
+      "megapixels": "45.7MP",
+      "video": "4K UHD",
+      "lensMount": "Nikon F"
+    },
+    "available": true
+  },
+  {
+    "id": 5,
+    "itemType": "Camcorder",
+    "name": "Sony HXR-NX80",
+    "thumbnail": "/img/dslr.svg",
+    "specs": {
+      "sensor": "1.0-type Exmor R CMOS",
+      "resolution": "4K HDR",
+      "zoom": "12x optical zoom",
+      "storage": "SD Card"
+    },
+    "available": true
+  },
+  {
+    "id": 6,
+    "itemType": "Camcorder",
+    "name": "Panasonic HC-X1",
+    "thumbnail": "/img/dslr.svg",
+    "specs": {
+      "sensor": "1.0-type MOS",
+      "resolution": "4K Ultra HD",
+      "zoom": "20x optical zoom",
+      "storage": "SD Card"
+    },
+    "available": true
+  },
+  {
+    "id": 7,
+    "itemType": "Lighting Equipment",
+    "name": "Godox SL-60W",
+    "thumbnail": "/img/lighting.svg",
+    "specs": {
+      "power": "60W",
+      "colorTemperature": "5600K",
+      "CRI": "95+",
+      "batteryPowered": false
+    },
+    "available": true
+  },
+  {
+    "id": 8,
+    "itemType": "Lighting Equipment",
+    "name": "Neewer 660 LED Video Light",
+    "thumbnail": "/img/lighting.svg",
+    "specs": {
+      "power": "40W",
+      "colorTemperature": "3200K-5600K",
+      "CRI": "96+",
+      "batteryPowered": true
+    },
+    "available": true
+  },
+  {
+    "id": 9,
+    "itemType": "Accessories",
+    "name": "Pelican 1510 Carry-On Case",
+    "thumbnail": "/img/accessory.svg",
+    "specs": {
+      "material": "Polypropylene",
+      "waterproof": true,
+      "dimensions": "22 x 13.81 x 9 in",
+      "weight": "13.6 lbs"
+    },
+    "available": true
+  },
+  {
+    "id": 10,
+    "itemType": "Accessories",
+    "name": "Manfrotto Befree Advanced Tripod",
+    "thumbnail": "/img/accessory.svg",
+    "specs": {
+      "material": "Aluminum",
+      "maxHeight": "59.06 in",
+      "weight": "3.62 lbs",
+      "loadCapacity": "17.64 lbs"
     },
     "available": true
   }

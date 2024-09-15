@@ -71,13 +71,13 @@ const ReservationsList = () => {
         ) : (
           <ul className='reservations-list'>
             {reservations.map((reservation) => {
-              const matchingInventory = getInventoryForReservation(reservation.laptop);
+              const matchingInventory = getInventoryForReservation(reservation.item);
 
               return (
                 <li key={reservation.id}>
                   {/* reservation-preview component */}
                   <Card
-                    cardTitle={reservation.laptop}
+                    cardTitle={reservation.item}
                     cardSubtitle={truncate(reservation.id, { length: 12 })} // lodash truncate function to prevent excessive characters for reservation titles
                     cardImg={matchingInventory?.thumbnail || null}
                     cardOptions={
