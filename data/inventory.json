@@ -79,7 +79,7 @@
   },
   {
     "id": 7,
-    "itemType": "Lighting Equipment",
+    "itemType": "Lighting",
     "name": "Godox SL-60W",
     "thumbnail": "/img/lighting.svg",
     "specs": {
@@ -92,7 +92,7 @@
   },
   {
     "id": 8,
-    "itemType": "Lighting Equipment",
+    "itemType": "Lighting",
     "name": "Neewer 660 LED Video Light",
     "thumbnail": "/img/lighting.svg",
     "specs": {

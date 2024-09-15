@@ -316,29 +316,63 @@ button.warning {
   // background-color: $color-selected;
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 15px;
+
+form{
+
+  
+  .form-field {
+   
+    margin-bottom: 15px;
+  }
+
+
+  
+  label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #333;
+  }
+  
+  input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #007bff; /* Focused input border color */
+  }
+  
 }
 
-.form-group label {
-  font-weight: bold;
-  margin-bottom: 5px;
-  font-size: 0.9rem;
+
+#sort {
+  width: 200px; /* Adjust the width as needed */
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 16px;
   color: #333;
-}
-
-.form-group input {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus {
   outline: none;
-  border-color: #007bff; /* Focused input border color */
+  transition: all 0.3s ease;
 }
 
+#sort:hover {
+  border-color: #888; /* Darker border on hover */
+}
+
+#sort:focus {
+  border-color: #007bff; /* Change border color when focused */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle shadow */
+}
+
+#sort option {
+  background-color: #fff; /* Background for dropdown options */
+  color: #333; /* Option text color */
+  padding: 8px;
+}
