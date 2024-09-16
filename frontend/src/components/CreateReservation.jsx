@@ -78,51 +78,51 @@ const CreateReservation = () => {
             <Inventory onSelect={handleSelect} selectedItem={selectedItem} />
           </section>
 
-          <section id="checkout-info">
-            <h1>Checkout</h1>
-            {/* Checkout date info */}
-            <div className="form-field">
-              <label>Checkout Date:</label>
-              <DatePicker
-                selected={startDate}
-                onChange={(date) => handleDateChange(date, "checkout")}
-                minDate={new Date()} // set the minimum date as today
-                // dateFormat='yyyy/MM//dd'
-              />
-            </div>
+          <section id='checkout-info'>
+                    {/* Checkout date info */}
+          <div className="form-field">
+            <label>Checkout Date:</label>
+            <DatePicker
+              selected={startDate}
+              onChange={(date) => handleDateChange(date, "checkout")}
+              minDate={new Date()} // set the minimum date as today
+              // dateFormat='yyyy/MM//dd'
+            />
+          </div>
 
-            {/* Checkout time info */}
-            <div className="form-field">
-              <label>Checkout Time:</label>
-              <input
-                type="time"
-                name="checkoutTime"
-                value={reservation.checkoutTime}
-                // onChange={handleChange}
-              />
-            </div>
+          {/* Checkout time info */}
+          <div className="form-field">
+            <label>Checkout Time:</label>
+            <input
+              type="time"
+              name="checkoutTime"
+              value={reservation.checkoutTime}
+              // onChange={handleChange}
+            />
+          </div>
 
-            {/* Return date info */}
-            <div className="form-field">
-              <label>Return Date:</label>
-              <DatePicker
-                selected={endDate}
-                onChange={(date) => handleDateChange(date, "return")}
-                minDate={startDate}
-                maxDate={getMaxDate()}
-              />
-            </div>
+          {/* Return date info */}
+          <div className="form-field">
+            <label>Return Date:</label>
+            <DatePicker
+              selected={endDate}
+              onChange={(date) => handleDateChange(date, "return")}
+              minDate={startDate}
+              maxDate={getMaxDate()}
+            />
+          </div>
 
-            {/* Return time info */}
-            <div className="form-field">
-              <label>Return Time:</label>
-              <input
-                type="time"
-                name="returnTime"
-                value={reservation.returnTime}
-                // onChange={handleChange}
-              />
-            </div>
+          {/* Return time info */}
+          <div className="form-field">
+            <label>Return Time:</label>
+            <input
+              type="time"
+              name="returnTime"
+              value={reservation.returnTime}
+              // onChange={handleChange}
+            />
+          </div>
+
           </section>
 
           <button type="submit">Create Reservation</button>
